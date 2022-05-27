@@ -538,6 +538,7 @@ func TestDataSource_mtls(t *testing.T) {
 	tlsConfig := &tls.Config{
 		ClientAuth: tls.RequireAndVerifyClientCert,
 		ClientCAs:  clientCaCertPool,
+		InsecureSkipVerify: true,
 		Certificates: []tls.Certificate{
 			{
 				PrivateKey:  key,
