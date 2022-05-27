@@ -132,7 +132,9 @@ func dataSourceRead(ctx context.Context, d *schema.ResourceData, meta interface{
 	url := d.Get("url").(string)
 	headers := d.Get("request_headers").(map[string]interface{})
 
-	tlsConfig := &tls.Config{}
+	tlsConfig := &tls.Config{
+		InsecureSkipVerify: true,
+	}
 
 	castr, ok := d.GetOk("ca")
 	if ok {
